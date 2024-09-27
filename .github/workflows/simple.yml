@@ -17,7 +17,7 @@ jobs:
 
       - name: Get datetime
         id: datetime
-        run: echo "datetime=$(date --iso-8601=seconds --utc)" >> $GITHUB_OUTPUT
+        run: echo "datetime=$(date +'%Y%m%dT%H%M%S%z' --utc)" >> $GITHUB_OUTPUT
             
       - uses: actions-rust-lang/setup-rust-toolchain@v1
       - run: cargo run --release
@@ -28,7 +28,7 @@ jobs:
         with:
           artifacts: downloads.tar.gz
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ steps.datetime.outputs.datetime }}
+          tag: v${{ steps.datetime.outputs.datetime }}
           draft: false
           prerelease: false
           makeLatest: true
