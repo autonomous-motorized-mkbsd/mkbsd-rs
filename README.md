@@ -1,1 +1,1 @@
-# mkbsd-rs
+# https://github.com/korewaChino/mkbsd-rs
